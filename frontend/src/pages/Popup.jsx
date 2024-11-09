@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Route, Routes } from "react-router-dom";
 
 export default function() {
   useEffect(() => {
@@ -6,11 +7,13 @@ export default function() {
   }, []);
 
   return (
-    <div>
-      <h1>Spectre</h1>
-      <p>
-        Template: <code>react-js</code>
-      </p>
-    </div>
-  )
+    <>
+      <Routes>
+        {/* <Route path="/" <LandingPage/> */}
+        {/* <Route path="/scan" element={<Scans />} /> */}
+        {/* <Route path="/login" element={<Login />} /> */}
+        {/* <Route path="/signup" element={<Signup />} /> */}
+      </Routes>
+    </>
+  );
 }
