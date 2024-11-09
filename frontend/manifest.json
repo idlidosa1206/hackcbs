@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Spectre",
+  "version": "1.0",
+  "description": "Extension for Spectre.",
+  "icons": {
+    "48": "public/icon.png"
+  },
+  "browser_action": {
+    "default_popup": "build/index.html",
+    "default_icon": "public/icon.png"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
