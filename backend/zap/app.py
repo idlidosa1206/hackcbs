@@ -37,6 +37,19 @@ def passive():
             return jsonify({'message':'No target found'})
     return jsonify({'message':'No target found'})
 
+@app.route('/active')
+def active():
+    if(request.form['target']):
+        target = request.form['target']
+        try:
+            alerts = list(active_scan(target))
+            url = {'url': baseurl+"/static/"+report(target)+".pdf"}
+            alerts.append(url)
+            return jsonify(alerts)
+        except:
+            return jsonify({'message':'No target found'})
+    return jsonify({'message':'No target found'})
+    
 
 if __name__ == '__main__':
     app.run()
