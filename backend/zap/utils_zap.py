@@ -3,6 +3,7 @@ import time
 from zapv2 import ZAPv2
 
 zap = ZAPv2(apikey="")
+
 def spider_scan(target):
     try:
         scanID = zap.spider.scan(target)
@@ -12,6 +13,24 @@ def spider_scan(target):
         return Results
     except:
         return ""
+
+def passive_scan(target):
+    try:
+        spider_scan(target)
+        while int(zap.pscan.records_to_scan) > 0:
+            time.sleep(2)
+        response = zap.core.alerts()
+        total_list = []
+        for i in response:
+            temp = dict()
+            temp["alert"] = i["alert"]
+            temp["risk"] = i["risk"]
+            temp["confidence"] = i["confidence"]
+            total_list.append(temp)
+        unique_dict = {v["alert"]: v for v in total_list}.values()
+        return unique_dict
+    except:
+        return None
 
 
 def limit_pscan():
