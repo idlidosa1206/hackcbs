@@ -13,8 +13,8 @@ export default function () {
     <>
       {/* <LandingPage /> */}
       <Routes>
-        <Route path="/" element={<LandingPage/>} />
-        <Route path="/scans" element={<Scans />} />
+        {/* <Route path="/" element={<LandingPage/>} /> */}
+        <Route path="/" element={<Scans />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignupForm />} />
       </Routes>
