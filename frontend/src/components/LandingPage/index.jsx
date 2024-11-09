@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Card,
   CardContent,
@@ -9,45 +9,48 @@ import {
   Tabs,
   Tab,
   styled,
-  Button
-} from '@mui/material';
+  Button,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 // import CloseIcon from '@mui/icons-material/Close';
 
 // Create styled components for custom styling
 const StyledCard = styled(Card)(({ theme }) => ({
   maxWidth: 400,
   borderRadius: theme.spacing(2),
-  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
 }));
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   minHeight: 36,
-  '& .MuiTab-root': {
+  "& .MuiTab-root": {
     minHeight: 36,
-    textTransform: 'none',
-    fontSize: '0.875rem',
+    textTransform: "none",
+    fontSize: "0.875rem",
   },
 }));
 
 const LandingPage = () => {
-//   const [value, setValue] = React.useState(0);
+  //   const [value, setValue] = React.useState(0);
 
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
+  //   const handleChange = (event, newValue) => {
+  //     setValue(newValue);
+  //   };
+
+  const navigate = useNavigate();
 
   return (
     <StyledCard>
       <CardHeader
         sx={{ pb: 0 }}
         // avatar={
-        //   <Box 
+        //   <Box
         //     component="img"
         //     src="/placeholder.svg"
         //     alt="Pullweb logo"
-        //     sx={{ 
-        //       width: 24, 
-        //       height: 24, 
+        //     sx={{
+        //       width: 24,
+        //       height: 24,
         //       borderRadius: '4px'
         //     }}
         //   />
@@ -63,20 +66,16 @@ const LandingPage = () => {
         <Typography
           variant="caption"
           component="div"
-          sx={{ color: 'text.secondary', fontWeight: 500, mb: 1 }}
+          sx={{ color: "text.secondary", fontWeight: 500, mb: 1 }}
         >
           WELCOME!
         </Typography>
-        
-        <Typography 
-          variant="h6" 
-          component="h2" 
-          sx={{ fontWeight: 500, mb: 1 }}
-        >
-         Don't Let Vulnerabilities Take Flight: Use SpecTRE.
+
+        <Typography variant="h6" component="h2" sx={{ fontWeight: 500, mb: 1 }}>
+          Don't Let Vulnerabilities Take Flight: Use SpecTRE.
         </Typography>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
           {/* <Box
             component="span"
             sx={{
@@ -91,15 +90,23 @@ const LandingPage = () => {
           <Typography
             variant="body2"
             component="a"
-            sx={{ 
-              color: 'text.secondary', 
-              textDecoration: 'none',
-              '&:hover': {
-                textDecoration: 'underline'
-              }
+            sx={{
+              color: "text.secondary",
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
             }}
           >
-           <Button variant="contained" sx={{ backgroundColor: '#7c17cf' }}>Get Started</Button>
+            <Button
+              variant="contained"
+              sx={{ backgroundColor: "#7c17cf" }}
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Get Started
+            </Button>
           </Typography>
         </Box>
 

@@ -9,7 +9,7 @@ export default function () {
 
   return (
     <>
-      <LandingPage />
+      {/* <LandingPage /> */}
       <Routes>
         <Route path="/" element={<LandingPage/>} />
         {/* <Route path="/scan" element={<Scans />} /> */}
