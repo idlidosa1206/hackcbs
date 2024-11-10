@@ -29,20 +29,22 @@ SpecTRE comprises of three main component:
 ![SpecTRE](https://github.com/user-attachments/assets/e18d68e4-adc3-496b-8781-0a5f5e02f15d)
 
 
-## ⚙ Getting Started 
+## Getting Started ⚙
 
 To get started with SpecTRE, follow these steps:
 
 1. Clone the repository:
-   - [SpecTRE_Web_Extension](https://github.com/idlidosa1206/hackcbs/)
+   ```
+   git clone https://github.com/idlidosa1206/hackcbs/
+   ```
 
 2. Set up the flask server:
    ```
-     cd backend/zap
-     python3 -m venv env
-     source env/bin/activate
-     pip install -r requirements.txt
-     ```
+   cd backend/zap
+   python3 -m venv env
+   source env/bin/activate
+   pip install -r requirements.txt
+   ```
      
 3. Set up the node server:
    - Open a new terminal
@@ -56,12 +58,11 @@ To get started with SpecTRE, follow these steps:
 4. Set up the browser extension:
    - Open a new terminal
      
-   ```
-   
-   cd frontend/vite-project
-   npm i
-   npm run dev
-   ```
+     ```
+     cd frontend/vite-project
+     npm i
+     npm run dev
+     ```
    - This script automatically opens up Google Chrome where you can access the extension.
    
 5. Start using the tools 🚀:
