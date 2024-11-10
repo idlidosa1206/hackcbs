@@ -39,7 +39,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-export default function LoginForm({setIsAuth}) {
+export default function LoginForm({ setIsAuth }) {
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState({
     email: "",
@@ -65,39 +65,51 @@ export default function LoginForm({setIsAuth}) {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://127.0.0.1:4444/api/users/login",
+      url: "http://127.0.0.1:4444/api/users/login", // Use full URL instead of baseURL
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
+        // Add this header to identify requests from the extension
+        Origin: chrome.runtime.getURL(""),
       },
       withCredentials: true,
       data: data,
     };
 
     try {
-      const response = await axios.request(config);
-      return response; // Return response here
+      const response = await axios(config); // Use axios directly instead of axios.request
+      return response;
     } catch (error) {
       console.log(error);
-      throw error; // Throw error to be caught in handleSubmit
+      throw error;
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsloding(true);
-
+  
     try {
-      const response = await loginCall(); // Await response from loginCall
-
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("email", JSON.stringify(response.data.email));
-      localStorage.setItem("name", JSON.stringify(response.data.name));
-
+      const response = await loginCall();
+  
+      // For extension, it's better to use chrome.storage.local instead of localStorage
+      if (chrome && chrome.storage) {
+        chrome.storage.local.set({
+          token: response.data.token,
+          email: response.data.email,
+          name: response.data.name
+        });
+      } else {
+        // Fallback for development environment
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("email", JSON.stringify(response.data.email));
+        localStorage.setItem("name", JSON.stringify(response.data.name));
+      }
+  
       toast.success("Login Successful", { position: "top" });
       setIsAuth(true);
-
       navigate("/scans");
     } catch (err) {
+      console.error(err);
       toast.error("Login Failed", { position: "top" });
     } finally {
       setIsloding(false);

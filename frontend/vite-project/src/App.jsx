@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import LandingPage from "../components/LandingPage";
-import LoginForm from "../components/LoginForm";
-import SignupForm from "../components/SignupForm";
-import Scans from "../components/Scans";
-import Checkout from "../components/Checkout";
+import LandingPage from "./components/LandingPage";
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
+import Scans from "./components/Scans";
+import Checkout from "./components/Checkout";
 import { Toaster } from "react-hot-toast";
 
-export default function () {
+function App () {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
@@ -37,3 +37,4 @@ export default function () {
     </>
   );
 }
+export default App
