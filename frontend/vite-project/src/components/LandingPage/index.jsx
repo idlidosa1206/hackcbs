@@ -13,11 +13,15 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import Lottie from 'lottie-react'
+import animation from './animation.json'
 // import CloseIcon from '@mui/icons-material/Close';
 
 // Create styled components for custom styling
 const StyledCard = styled(Card)(({ theme }) => ({
-  maxWidth: 400,
+  // maxWidth: 600,
+  minWidth: 500,
+  minHeight: "100vh",
   borderRadius: theme.spacing(2),
   boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
 }));
@@ -47,54 +51,43 @@ const LandingPage = ({ isAuth }) => {
   const navigate = useNavigate();
 
   return (
-    <StyledCard>
+    <StyledCard maxWidth={false}>
       <CardHeader
         sx={{ pb: 0 }}
-        // avatar={
-        //   <Box
-        //     component="img"
-        //     src="/placeholder.svg"
-        //     alt="Pullweb logo"
-        //     sx={{
-        //       width: 24,
-        //       height: 24,
-        //       borderRadius: '4px'
-        //     }}
-        //   />
-        // }
-        // action={
-        //   <IconButton aria-label="close">
-        //     {/* <CloseIcon /> */}
-        //   </IconButton>
-        // }
+        avatar={
+          <Box
+            component="img"
+            src="/logo.png"
+            alt="SpecTRE logo"
+            sx={{
+              width: 40,
+              height: 65,
+              borderRadius: '4px',
+              font: '2rem'
+            }}
+          />
+        }
         title="SpecTRE"
+        titleTypographyProps={{ variant: 'h4' }}
         onClick={navigate("/")}
       />
       <CardContent>
         <Typography
           variant="caption"
           component="div"
-          sx={{ color: "text.secondary", fontWeight: 500, mb: 1 }}
+          sx={{ color: "text.secondary", fontWeight: 500, mb: 5 }}
         >
           WELCOME!
         </Typography>
+        <Box sx={{ width: "100%", mx: "auto", mb: 5 }}>
+          <Lottie animationData={animation} />
+        </Box>
 
-        <Typography variant="h6" component="h2" sx={{ fontWeight: 500, mb: 1 }}>
+        <Typography variant="h6" component="h2" sx={{ fontWeight: 500, mb: 5 }}>
           Don't Let Vulnerabilities Take Flight: Use SpecTRE.
         </Typography>
 
-        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-          {/* <Box
-            component="span"
-            sx={{
-              width: 20,
-              height: 20,
-              borderRadius: '50%',
-              backgroundColor: '#ea4c89',
-              mr: 1,
-              display: 'inline-block',
-            }}
-          /> */}
+        <Box sx={{ display: "flex", alignItems: "center", mb: 5 }}>
           <Typography
             variant="body2"
             component="a"

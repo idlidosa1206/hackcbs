@@ -6,8 +6,8 @@ import { useEffect } from "react";
 
 // Styled components
 const ExtensionWrapper = styled(Box)({
-  width: "240px",
-  height: "400px",
+  minWidth: 500,
+  minHeight: "100vh",
   backgroundColor: "#f9fafb",
   position: "relative",
   overflow: "hidden",
@@ -15,6 +15,10 @@ const ExtensionWrapper = styled(Box)({
   alignItems: "center",
   justifyContent: "center",
   padding: "16px",
+  backgroundImage: "url('/BGlogo.png')",
+  backgroundSize: "70%", // Reduce the image size by 30%
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat", // Ensure the image does not repeat
 });
 
 const BackgroundImage = styled("div")({
@@ -69,7 +73,7 @@ export default function ScanConfirmationPage({ isAuth }) {
 
   return (
     <Fade in timeout={500}>
-      <ExtensionWrapper>
+      <ExtensionWrapper maxWidth={false}>
         <BackgroundImage />
         <ContentWrapper>
           <Slide direction="down" in timeout={500}>

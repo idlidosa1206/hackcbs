@@ -17,12 +17,17 @@ import qs from "qs";
 import toast from "react-hot-toast";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
+  minWidth: 500,
   minHeight: "100vh",
   backgroundColor: "#f9fafb",
   padding: theme.spacing(4),
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  backgroundImage: "url('/BGlogo.png')",
+  backgroundSize: "70%", // Reduce the image size by 30%
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat", // Ensure the image does not repeat
 }));
 
 const StyledForm = styled(Box)(({ theme }) => ({

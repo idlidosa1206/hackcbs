@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import {
   Button,
   TextField,
@@ -11,9 +11,9 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
-import qs from "qs"; 
-import axios from "axios"; 
-import toast from "react-hot-toast"; 
+import qs from "qs";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const StyledLink = styled(Link)(({ theme }) => ({
   color: "#7c17cf",
@@ -72,7 +72,7 @@ export default function SignupForm({ setIsAuth }) {
 
     try {
       const response = await SignupCall();
-      console.log(response)
+      console.log(response);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("email", JSON.stringify(response.data.email));
       localStorage.setItem("name", JSON.stringify(response.data.name));
@@ -93,12 +93,18 @@ export default function SignupForm({ setIsAuth }) {
   return (
     <Box
       sx={{
+        minWidth: 500,
         minHeight: "100vh",
+        maxWidth: "false",
         backgroundColor: "grey.50",
         padding: 4,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        backgroundImage: "url('/BGlogo.png')",
+        backgroundSize: "70%", // Reduce the image size by 30%
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat", // Ensure the image does not repeat
       }}
     >
       <Box sx={{ maxWidth: 400, width: "100%", textAlign: "center" }}>

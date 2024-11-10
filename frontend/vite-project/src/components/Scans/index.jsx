@@ -4,14 +4,18 @@ import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
 const ExtensionWrapper = styled(Box)({
-  width: "240px",
-  height: "440px",
+  minWidth: 500,
+  minHeight: "100vh",
   backgroundColor: "#f9fafb",
   padding: "14px",
   overflow: "hidden",
   display: "flex",
   flexDirection: "column",
   borderRadius: "16px",
+  backgroundImage: "url('/BGlogo.png')",
+  backgroundSize: "70%", // Reduce the image size by 30%
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat", // Ensure the image does not repeat
 });
 
 const ContentWrapper = styled(Box)({
@@ -175,9 +179,10 @@ export default function Scans({ isAuth }) {
       // });
 
       // Instead of closing, redirect to checkout
-      const delay = async(ms) => new Promise((resolve) => setTimeout(resolve, ms));
-      await delay(3000)
-      
+      const delay = async (ms) =>
+        new Promise((resolve) => setTimeout(resolve, ms));
+      await delay(3000);
+
       navigate("/checkout");
     } catch (error) {
       console.error("Scan failed:", error);
@@ -189,8 +194,29 @@ export default function Scans({ isAuth }) {
 
   return (
     <Fade in timeout={500}>
-      <ExtensionWrapper>
+      <ExtensionWrapper maxWidth={false}>
         <ContentWrapper>
+          <Box
+            onClick={() => {
+              navigate("/");
+            }}
+            sx={{
+              cursor: "pointer",
+            }}
+          >
+            <Typography
+              variant="h3"
+              component="h1"
+              sx={{
+                fontWeight: 700,
+                color: "#111827",
+                letterSpacing: "-0.025em",
+                mb: 1,
+              }}
+            >
+              SpecTRE
+            </Typography>
+          </Box>
           <Slide direction="down" in timeout={500}>
             <Box textAlign="center" mb={0.5}>
               <Typography
