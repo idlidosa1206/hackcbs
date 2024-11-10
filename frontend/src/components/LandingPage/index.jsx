@@ -12,6 +12,7 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 // import CloseIcon from '@mui/icons-material/Close';
 
 // Create styled components for custom styling
@@ -30,12 +31,18 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
   },
 }));
 
-const LandingPage = () => {
+const LandingPage = ({ isAuth }) => {
   //   const [value, setValue] = React.useState(0);
 
   //   const handleChange = (event, newValue) => {
   //     setValue(newValue);
   //   };
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate("/scans");
+    }
+  }, [isAuth]);
 
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {
   Box,
   Typography,
@@ -64,9 +64,15 @@ const ScanButton = styled(Button)({
   },
 });
 
-export default function Scans() {
+export default function Scans({isAuth}) {
   const [selectedScans, setSelectedScans] = useState([]);
   const scanTypes = ["Sypder", "Active", "Passive"];
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/");
+    }
+  }, [isAuth]);
 
   const handleToggleScan = (type) => {
     setSelectedScans((prevSelected) =>
@@ -80,6 +86,7 @@ export default function Scans() {
     console.log("Selected Scans:", selectedScans);
     
   };
+
 
   return (
     <Fade in timeout={500}>
