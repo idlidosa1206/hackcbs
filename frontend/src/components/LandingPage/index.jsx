@@ -61,6 +61,7 @@ const LandingPage = () => {
         //   </IconButton>
         // }
         title="SpecTRE"
+        onClick={navigate("/")}
       />
       <CardContent>
         <Typography

@@ -38,22 +38,32 @@ const StyledLink = styled(Link)(({ theme }) => ({
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
   return (
     <StyledContainer maxWidth={false}>
       <StyledForm>
         <Box sx={{ textAlign: "center", mb: 4 }}>
-          <Typography
-            variant="h3"
-            component="h1"
+          <Box
+            onClick={() => {
+              navigate("/");
+            }}
             sx={{
-              fontWeight: 700,
-              color: "#111827",
-              letterSpacing: "-0.025em",
-              mb: 1,
+              cursor: "pointer",
             }}
           >
-            SpecTRE
-          </Typography>
+            <Typography
+              variant="h3"
+              component="h1"
+              sx={{
+                fontWeight: 700,
+                color: "#111827",
+                letterSpacing: "-0.025em",
+                mb: 1,
+              }}
+            >
+              SpecTRE
+            </Typography>
+          </Box>
           <Typography variant="body1" sx={{ color: "#4b5563", mb: 1 }}>
             WELCOME BACK!
           </Typography>

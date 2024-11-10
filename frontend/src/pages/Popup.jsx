@@ -4,6 +4,7 @@ import LandingPage from "../components/LandingPage";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 import Scans from "../components/Scans";
+import Checkout from "../components/Checkout";
 export default function () {
   useEffect(() => {
     console.log("Hello from the popup!");
@@ -13,10 +14,11 @@ export default function () {
     <>
       {/* <LandingPage /> */}
       <Routes>
-        {/* <Route path="/" element={<LandingPage/>} /> */}
-        <Route path="/" element={<Scans />} />
+        <Route path="/" element={<LandingPage/>} />
+        <Route path="/scans" element={<Scans />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignupForm />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   );

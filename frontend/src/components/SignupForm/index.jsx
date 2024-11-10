@@ -9,6 +9,15 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
+import { styled } from "@mui/system"; // Import styled from @mui/system
+
+const StyledLink = styled(Link)(({ theme }) => ({
+  color: "#7c17cf",
+  textDecoration: "none",
+  "&:hover": {
+    color: "#6a14b2",
+  },
+}));
 
 export default function SignupForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,14 +34,24 @@ export default function SignupForm() {
       }}
     >
       <Box sx={{ maxWidth: 400, width: "100%", textAlign: "center" }}>
-        <Typography
-          variant="h4"
-          component="h1"
-          fontWeight="bold"
-          color="textPrimary"
+        <Box
+          onClick={() => {
+            navigate("/");
+          }}
+          sx={{
+            cursor: "pointer",
+          }}
         >
-          SpecTRE
-        </Typography>
+          <Typography
+            variant="h4"
+            component="h1"
+            fontWeight="bold"
+            color="textPrimary"
+            onClick={navigate("/")}
+          >
+            SpecTRE
+          </Typography>
+        </Box>
         <Typography variant="subtitle1" color="textSecondary">
           GET STARTED
         </Typography>
@@ -86,7 +105,7 @@ export default function SignupForm() {
             fullWidth
             variant="contained"
             color="primary"
-            // onClick={navigate("/login")}
+            onClick={() => navigate("/login")} // Activate navigation on click
             sx={{
               mt: 2,
               backgroundColor: "#7c17cf",
@@ -96,16 +115,8 @@ export default function SignupForm() {
             Sign Up
           </Button>
           <Typography variant="body2" color="textSecondary" mt={2}>
-            Already have an account?
-            <Link to="/login">
-              <Typography
-                component="span"
-                color="primary"
-                sx={{ "&:hover": { color: "#6a14b2" } }}
-              >
-                Sign in
-              </Typography>
-            </Link>
+            Already have an account?{" "}
+            <StyledLink to="/login">Sign in</StyledLink> {/* Fixed link */}
           </Typography>
         </Box>
       </Box>
