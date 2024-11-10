@@ -23,8 +23,14 @@ export default function () {
       <Routes>
         <Route path="/" element={<LandingPage isAuth={isAuth} />} />
         <Route path="/scans" element={<Scans isAuth={isAuth} />} />
-        <Route path="/login" element={<LoginForm isAuth={isAuth} />} />
-        <Route path="/signup" element={<SignupForm isAuth={isAuth} />} />
+        <Route
+          path="/login"
+          element={<LoginForm isAuth={isAuth} setIsAuth={setIsAuth} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignupForm isAuth={isAuth} setIsAuth={setIsAuth} />}
+        />
         <Route path="/checkout" element={<Checkout isAuth={isAuth} />} />
       </Routes>
       <Toaster />

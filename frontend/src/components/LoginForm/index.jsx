@@ -39,7 +39,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-export default function LoginForm() {
+export default function LoginForm({setIsAuth}) {
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState({
     email: "",
@@ -81,7 +81,7 @@ export default function LoginForm() {
       throw error; // Throw error to be caught in handleSubmit
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsloding(true);
@@ -94,6 +94,7 @@ export default function LoginForm() {
       localStorage.setItem("name", JSON.stringify(response.data.name));
 
       toast.success("Login Successful", { position: "top" });
+      setIsAuth(true);
 
       navigate("/scans");
     } catch (err) {
