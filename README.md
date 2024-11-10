@@ -1,7 +1,7 @@
 
 ## Hi there !!👋
 
-Welcome to project SpecTRE! This project aims to assist users in evaluating the safety of websites by identifying potential vulnerabilities present within them. With the integration of our tools, users can easily assess the security posture of their websites and take necessary actions to mitigate risks.
+Welcome to project **SpecTRE!** This project aims to assist users in evaluating the safety of websites by identifying potential vulnerabilities present within them. With the integration of our tools, users can easily assess the security posture of their websites and take necessary actions to mitigate risks.
 
 ## Project Overview
 
@@ -13,34 +13,58 @@ SpecTRE comprises of three main component:
 
 3. **SpecTRE_ZAP**: A Flask server designed to analyze vulnerabilities in a given target website. SpecTRE_ZAP serves as a crucial component in our toolset, enabling users to perform comprehensive security tests effortlessly.
 
-## Key Features
+## Key Features 📢
 
 - **Website Security Assessment**: Users can easily assess the security of their websites through our intuitive web interface.
   
-- **Vulnerability Analysis**: SpecTRE_ZAP helps users identify potential vulnerabilities in target websites, simplifying the process of penetration testing.
+- **Vulnerability Analysis**: SpecTRE_ZAP helps users identify potential vulnerabilities in target websites, simplifying the process of penetration testing in just a few clicks.
+
+- **In-Depth Reports**: SpecTRE provides users with various crucials metrics like number of alerts, vulnerabilities, risk levels, attack possibilites and much more.
+
+- **Cloud Deployment**: Deployed on AWS EC2 instance, our platform has zero-downtime.
 
 - **Seamless Integration**: The three elements work together seamlessly to provide a unified platform for website security assessment.
 
-## Workflow
+## Workflow 🛠️
 ![SpecTRE](https://github.com/user-attachments/assets/e18d68e4-adc3-496b-8781-0a5f5e02f15d)
 
 
-## Getting Started
+## ⚙ Getting Started 
 
 To get started with SpecTRE, follow these steps:
 
-1. Clone the repositories:
-   - [SpecTRE_Web_Extension](https://github.com/idlidosa1206/hackcbs/tree/main/frontend/)
-   - [SpecTRE_ZAP](https://github.com/idlidosa1206/hackcbs/tree/main/backend/zap/)
-   - [SpecTRE_DB](https://github.com/idlidosa1206/hackcbs/tree/main/backend/db/)
+1. Clone the repository:
+   - [SpecTRE_Web_Extension](https://github.com/idlidosa1206/hackcbs/)
 
-2. Set up the necessary dependencies:
-   - Ensure you have Node.js, Flask, and other required dependencies installed for each repository.
+2. Set up the flask server:
+   ```
+     cd backend/zap
+     python3 -m venv env
+     source env/bin/activate
+     pip install -r requirements.txt
+     ```
+     
+3. Set up the node server:
+   - Open a new terminal
+     
+     ```
+     cd backend/db
+     npm i
+     npm run server
+     ```
 
-3. Configure the environment:
-   - Follow the instructions provided in the README files of each repository to set up the environment variables and configurations.
-
-4. Start using the tools:
+4. Set up the browser extension:
+   - Open a new terminal
+     
+   ```
+   
+   cd frontend/vite-project
+   npm i
+   npm run dev
+   ```
+   - This script automatically opens up Google Chrome where you can access the extension.
+   
+5. Start using the tools 🚀:
    - Once everything is set up, you can start using SpecTRE to evaluate website security and identify vulnerabilities.
 
 Thank you for choosing the SpecTRE to strengthen the security of your websites! We hope our tool proves to be valuable assets in your security arsenal.
